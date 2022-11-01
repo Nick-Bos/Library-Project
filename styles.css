@@ -27,7 +27,14 @@ h1{
     margin: 2em;
 }
 
-.add-book-btn{
+#add-book-btn{
    border-radius: 10px;
    font-size: 1.5em;
+}
+
+.pop-up-form {
+    display: none;
+}
+.pop-up-form--on{
+    display: block;
 }
