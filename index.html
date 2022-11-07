@@ -25,24 +25,34 @@
 
         <!--FORM-->
         <div class="pop-up-form">
-            <form action="" method="post" onsubmit="return false;">
-                <label for="author">Author</label>
-                <input type="text" id="author" name="author">
-
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title">
-
-                <label for="pages">Pages</label>
-                <input type="text" id="pages" name="pages">
-
-                <label for="read it?">Read it?</label>
-                <input type="checkbox" value="Not read" id="read" name="read it?">
-
-                <label for="submit-btn">Submit</label>
-                <input type="submit" name="submit-btn" id="submit-btn">
-
-            
-            </form>
+            <div class="form-container">
+                <form class="form" action="" method="post" onsubmit="return false;">
+                    <field class="author">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author">
+                    </field>
+    
+                    <field class="title">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title">
+                    </field>
+    
+                    <field class="pages">
+                        <label for="pages">Pages</label>
+                        <input type="text" id="pages" name="pages">
+                    </field>
+    
+                    <field class="read">
+                        <label for="read it?">Read it?</label>
+                        <input type="checkbox" value="Not read" id="read" name="read it?">
+                    </field>
+    
+                    <field class="submit">
+                        <label for="submit-btn"></label>
+                        <input type="submit" name="submit-btn" id="submit-btn" value="Add">
+                    </field>
+                </form>
+            </div>
         </div>
         <!--FORM-->
     </div>
