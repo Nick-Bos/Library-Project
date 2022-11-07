@@ -38,3 +38,11 @@ h1{
 .pop-up-form--on{
     display: block;
 }
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(230, 173, 173);
+    border: solid rebeccapurple 2px;
+}
