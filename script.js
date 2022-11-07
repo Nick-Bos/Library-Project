@@ -1,10 +1,5 @@
 let myLibrary = [];
 
-let author = "unknown";
-let title = "unknown";
-let pages = "unknown";
-let read = "unknown";
-
 const addBookBtn = document.getElementById("add-book-btn");
 addBookBtn.onclick = function () {
   popUpFormToggle(".pop-up-form", "pop-up-form--on");
@@ -20,7 +15,7 @@ function popUpFormToggle(classname, classnameOpen) {
 }
 
 //form checkbox on off function
-const checkbox = document.getElementById("read it?");
+const checkbox = document.getElementById("read");
 checkbox.onclick = () => {
   checkbox.value = "true";
   checkboxToggle();
@@ -33,38 +28,46 @@ function checkboxToggle() {
   }
 }
 
-//form input data
-function sendFormData() {
-  let authorInput = document.getElementById("author").value;
-  let titleInput = document.getElementById("title").value;
-  let pagesInput = document.getElementById("pages").value;
-  let readInput = document.getElementById("read it?").value;
-
-  author = authorInput;
-  title = titleInput;
-  pages = pagesInput;
-  read = readInput;
-}
-
 const formSubmitBtn = document.getElementById("submit-btn");
 formSubmitBtn.onclick = () => {
-  submitForm();
+  const newBook = bookInput();
+  bookCard(newBook);
+  console.log(newBook);
 };
-function submitForm() {
-  sendFormData();
-  console.log(author);
-  console.log(title);
-  console.log(pages);
-  console.log(read);
-}
 
-function createBookCard() {}
-
-function Book(author, title, pages, isRead) {
+function Book(author, title, pages, read) {
   this.author = author;
   this.title = title;
   this.pages = pages;
-  this.isRead = isRead;
+  this.read = read;
+}
+
+function bookInput() {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
+
+  return new Book(author, title, pages, read);
+}
+//creates book card on dom
+function bookCard(a) {
+  const card = document.createElement("div");
+  const cardAuthor = document.createElement("p");
+  const cardTitle = document.createElement("p");
+  const cardPages = document.createElement("p");
+  const cardRead = document.createElement("p");
+
+  document.body.appendChild(card);
+  card.appendChild(cardAuthor);
+  card.appendChild(cardTitle);
+  card.appendChild(cardPages);
+  card.appendChild(cardRead);
+
+  cardAuthor.textContent = a.author;
+  cardTitle.textContent = a.title;
+  cardPages.textContent = a.pages;
+  cardRead.textContent = a.read;
 }
 
 let newBook = new Book(
