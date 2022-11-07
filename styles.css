@@ -1,18 +1,20 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: #e8dfe0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .container{
     padding: 0;
     margin: 0;
-    height: 100vh;
 }
 
 .header{
-    background-color: lightgrey;
-    padding: 0;
+    background-color: #dab692;
+    padding: 20px;
     margin: 0;
+
 }
 
 h1{
@@ -38,6 +40,30 @@ h1{
 .pop-up-form--on{
     display: block;
 }
+
+.form-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #8A9EA7;
+    height: 300px;
+    width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    
+}
+
+.form>field{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.5em;
+    padding-top: 20px;
+}
+
 
 .book-card{
     display: flex;
