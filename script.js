@@ -14,25 +14,10 @@ function popUpFormToggle(classname, classnameOpen) {
   }
 }
 
-//form checkbox on off function
-const checkbox = document.getElementById("read");
-checkbox.onclick = () => {
-  checkbox.value = "true";
-  checkboxToggle();
-};
-function checkboxToggle() {
-  if (checkbox.value == "Not read") {
-    read = "Not read";
-  } else {
-    checkbox.value = "I have read this";
-  }
-}
-
 const formSubmitBtn = document.getElementById("submit-btn");
 formSubmitBtn.onclick = () => {
   const newBook = bookInput();
   bookCard(newBook);
-  console.log(newBook);
 };
 
 function Book(author, title, pages, read) {
@@ -52,22 +37,45 @@ function bookInput() {
 }
 //creates book card on dom
 function bookCard(a) {
+  const cardContainer = document.createElement("div");
   const card = document.createElement("div");
+  const cardAuthorLable = document.createElement("p");
   const cardAuthor = document.createElement("p");
+  const cardTitleLable = document.createElement("p");
   const cardTitle = document.createElement("p");
+  const cardPagesLabel = document.createElement("p");
   const cardPages = document.createElement("p");
+  const cardReadLabel = document.createElement("p");
   const cardRead = document.createElement("p");
 
-  document.body.appendChild(card);
+  document.getElementById("card-area").appendChild(cardContainer);
+  cardContainer.appendChild(card);
+  card.appendChild(cardAuthorLable);
   card.appendChild(cardAuthor);
+  card.appendChild(cardTitleLable);
   card.appendChild(cardTitle);
+  card.appendChild(cardPagesLabel);
   card.appendChild(cardPages);
+  card.appendChild(cardReadLabel);
   card.appendChild(cardRead);
 
+  cardAuthorLable.textContent = "Author:";
   cardAuthor.textContent = a.author;
+  cardTitleLable.textContent = "Title:";
   cardTitle.textContent = a.title;
+  cardPagesLabel.textContent = "Pages:";
   cardPages.textContent = a.pages;
+  cardReadLabel.textContent = "Read:";
   cardRead.textContent = a.read;
+
+  cardContainer.classList.add("card-container");
+  card.classList.add("card");
+
+  if (cardRead.textContent == "false") {
+    cardRead.textContent = "I have not read it";
+  } else {
+    cardRead.textContent = "I have read it";
+  }
 }
 
 let newBook = new Book(
