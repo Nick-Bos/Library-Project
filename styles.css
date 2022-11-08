@@ -14,7 +14,6 @@ body{
     background-color: #dab692;
     padding: 20px;
     margin: 0;
-
 }
 
 h1{
@@ -52,8 +51,6 @@ h1{
     margin: auto;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    
 }
 
 .form>field{
@@ -64,11 +61,30 @@ h1{
     padding-top: 20px;
 }
 
+#card-area{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 400px);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: row;
+}
 
-.book-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgb(230, 173, 173);
-    border: solid rebeccapurple 2px;
+.card-container{
+    display: grid;
+    justify-items: center;
+    margin: auto;
+}
+
+.card{
+    background-color: #8A9EA7;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    background-color: #8A9EA7;
+    height: auto;
+    width: 300px;
+    margin-top: 50px;
+    padding-left: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
