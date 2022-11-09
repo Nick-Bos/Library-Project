@@ -47,7 +47,7 @@ h1{
     align-items: center;
     background-color: #8A9EA7;
     height: 300px;
-    width: 500px;
+    width: 400px;
     margin: auto;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -72,19 +72,44 @@ h1{
 .card-container{
     display: grid;
     justify-items: center;
-    margin: auto;
 }
 
 .card{
     background-color: #8A9EA7;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     justify-content: center;
     background-color: #8A9EA7;
-    height: auto;
     width: 300px;
     margin-top: 50px;
     padding-left: 20px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.remove-book{
+    grid-column: 2;
+    margin: auto;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: rgba(1, 1, 1, 0.35) 0px 5px 15px;
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    background-color: #dab692;
+
+}
+
+#submit-btn{
+    grid-column: 2;
+    margin-left: auto;
+    
+    border-radius: 10px;
+    border: 0;
+    box-shadow: rgba(1, 1, 1, 0.35) 0px 5px 15px;
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    background-color: #dab692;
 }
