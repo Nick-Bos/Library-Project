@@ -47,6 +47,7 @@ function bookCard(a) {
   const cardPages = document.createElement("p");
   const cardReadLabel = document.createElement("p");
   const cardRead = document.createElement("p");
+  const cardRemove = document.createElement("button");
 
   document.getElementById("card-area").appendChild(cardContainer);
   cardContainer.appendChild(card);
@@ -58,6 +59,7 @@ function bookCard(a) {
   card.appendChild(cardPages);
   card.appendChild(cardReadLabel);
   card.appendChild(cardRead);
+  card.appendChild(cardRemove);
 
   cardAuthorLable.textContent = "Author:";
   cardAuthor.textContent = a.author;
@@ -67,9 +69,18 @@ function bookCard(a) {
   cardPages.textContent = a.pages;
   cardReadLabel.textContent = "Read:";
   cardRead.textContent = a.read;
+  cardRemove.textContent = "Delete book";
+
+  cardRemove.addEventListener("click", (e) => {
+    removeBook(e);
+  });
+  const removeBook = () => {
+    cardContainer.remove();
+  };
 
   cardContainer.classList.add("card-container");
   card.classList.add("card");
+  cardRemove.classList.add("remove-book");
 
   if (cardRead.textContent == "false") {
     cardRead.textContent = "I have not read it";
