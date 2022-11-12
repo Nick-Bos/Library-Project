@@ -17,8 +17,13 @@ function popUpFormToggle(classname, classnameOpen) {
 const formSubmitBtn = document.getElementById("submit-btn");
 formSubmitBtn.onclick = () => {
   const newBook = bookInput();
-  bookCard(newBook);
+  myLibrary.push(newBook);
+  displayBook();
 };
+
+function displayBook() {
+  bookCard(myLibrary[myLibrary.length - 1]);
+}
 
 function Book(author, title, pages, read) {
   this.author = author;
@@ -32,7 +37,6 @@ function bookInput() {
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
   const read = document.getElementById("read").checked;
-
   return new Book(author, title, pages, read);
 }
 //creates book card on dom
@@ -74,9 +78,6 @@ function bookCard(a) {
   cardRemove.addEventListener("click", (e) => {
     removeBook(e);
   });
-  const removeBook = () => {
-    cardContainer.remove();
-  };
 
   cardContainer.classList.add("card-container");
   card.classList.add("card");
@@ -86,21 +87,5 @@ function bookCard(a) {
     cardRead.textContent = "I have not read it";
   } else {
     cardRead.textContent = "I have read it";
-  }
-}
-
-let newBook = new Book(
-  "J.K Rowling",
-  "Harry Potter and the Philosopher's Stone",
-  "223",
-  "No"
-);
-
-function addBookToLibrary() {}
-
-// when called, this function displays the books in the myLibrary array.
-function displayBooks() {
-  for (i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i]);
   }
 }
