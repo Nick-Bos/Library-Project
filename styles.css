@@ -88,6 +88,30 @@ h1{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.card-read{
+    grid-column: 2;
+    margin: auto;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: rgba(1, 1, 1, 0.35) 0px 5px 15px;
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    background-color: #cdefc1;
+}
+
+.card-not-read{
+    grid-column: 2;
+    margin: auto;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: rgba(1, 1, 1, 0.35) 0px 5px 15px;
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    background-color: #e8a5a5;
+}
+
 .remove-book{
     grid-column: 2;
     margin: auto;
