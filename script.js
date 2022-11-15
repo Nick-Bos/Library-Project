@@ -25,19 +25,17 @@ function displayBook() {
   bookCard(myLibrary[myLibrary.length - 1]);
 }
 
-function Book(author, title, pages, read) {
+function Book(author, title, pages) {
   this.author = author;
   this.title = title;
   this.pages = pages;
-  this.read = read;
 }
 
 function bookInput() {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").checked;
-  return new Book(author, title, pages, read);
+  return new Book(author, title, pages);
 }
 
 //creates book card on dom
@@ -50,8 +48,7 @@ function bookCard(a) {
   const cardTitle = document.createElement("p");
   const cardPagesLabel = document.createElement("p");
   const cardPages = document.createElement("p");
-  const cardReadLabel = document.createElement("p");
-  const cardRead = document.createElement("p");
+  const cardRead = document.createElement("button");
   const cardRemove = document.createElement("button");
 
   document.getElementById("card-area").appendChild(cardContainer);
@@ -62,7 +59,6 @@ function bookCard(a) {
   card.appendChild(cardTitle);
   card.appendChild(cardPagesLabel);
   card.appendChild(cardPages);
-  card.appendChild(cardReadLabel);
   card.appendChild(cardRead);
   card.appendChild(cardRemove);
 
@@ -72,9 +68,9 @@ function bookCard(a) {
   cardTitle.textContent = a.title;
   cardPagesLabel.textContent = "Pages:";
   cardPages.textContent = a.pages;
-  cardReadLabel.textContent = "Read:";
-  cardRead.textContent = a.read;
+  cardRead.textContent = "Not read";
   cardRemove.textContent = "Delete book";
+
   function deleteCard() {
     cardRemove.parentNode.remove(card);
   }
@@ -82,13 +78,30 @@ function bookCard(a) {
     deleteCard(e);
   });
 
+  function readToggle() {
+    if (cardRead.textContent == "Not read") {
+      cardRead.textContent = "Read";
+    } else if (cardRead.textContent == "Read") {
+      cardRead.textContent = "Not read";
+    }
+  }
+
+  function readColor() {
+    if (cardRead.textContent == "Not read") {
+      cardRead.classList.add("card-not-read");
+    } else if (cardRead.textContent == "Read") {
+      cardRead.classList.remove("card-not-read");
+      cardRead.classList.add("card-read");
+    }
+  }
+
+  cardRead.addEventListener("click", (e) => {
+    readToggle(e);
+    readColor();
+  });
+
+  cardRead.classList.add("card-not-read");
   cardContainer.classList.add("card-container");
   card.classList.add("card");
   cardRemove.classList.add("remove-book");
-
-  if (cardRead.textContent == "false") {
-    cardRead.textContent = "I have not read it";
-  } else {
-    cardRead.textContent = "I have read it";
-  }
 }
