@@ -39,6 +39,7 @@ function bookInput() {
   const read = document.getElementById("read").checked;
   return new Book(author, title, pages, read);
 }
+
 //creates book card on dom
 function bookCard(a) {
   const cardContainer = document.createElement("div");
@@ -74,9 +75,11 @@ function bookCard(a) {
   cardReadLabel.textContent = "Read:";
   cardRead.textContent = a.read;
   cardRemove.textContent = "Delete book";
-
+  function deleteCard() {
+    cardRemove.parentNode.remove(card);
+  }
   cardRemove.addEventListener("click", (e) => {
-    removeBook(e);
+    deleteCard(e);
   });
 
   cardContainer.classList.add("card-container");
